@@ -37,24 +37,21 @@ extension MASegmentedControl {
         let selectedBtn = self.buttons[index]
         
         for (btnIndex, btn) in self.buttons.enumerated() {
-            if btnIndex != 1 {
-                btn.setTitleColor(textColor, for: .normal)
+            btn.setTitleColor(textColor, for: .normal)
+            if !itemsWithDynamicColor {
+                if !buttonsWithDynamicImages {
+                    btn.tintColor = buttonColorForNormal
+                }
+            }
+            if btn == selectedBtn && btnIndex != 1 {
+                fillEqually ?  moveThumbView(at: btnIndex) : moveThumbViewFillEquallyFalse(at: btnIndex)
+                btn.setTitleColor(selectedTextColor, for: .normal)
                 if !itemsWithDynamicColor {
                     if !buttonsWithDynamicImages {
-                        btn.tintColor = buttonColorForNormal
-                    }
-                }
-                if btn == selectedBtn {
-                    fillEqually ?  moveThumbView(at: btnIndex) : moveThumbViewFillEquallyFalse(at: btnIndex)
-                    btn.setTitleColor(selectedTextColor, for: .normal)
-                    if !itemsWithDynamicColor {
-                        if !buttonsWithDynamicImages {
-                            btn.tintColor = buttonColorForSelected
-                        }
+                        btn.tintColor = buttonColorForSelected
                     }
                 }
             }
-            
         }
         self.performAction()
     }
