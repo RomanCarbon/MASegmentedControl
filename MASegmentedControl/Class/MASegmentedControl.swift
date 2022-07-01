@@ -351,10 +351,7 @@ public class MASegmentedControl: UIControl {
             buttons.append(button)
             //set the one that we want to show as selected by default
         }
-        if selectedSegmentIndex != 1 {
-            buttons[selectedSegmentIndex].setTitleColor(selectedTextColor, for: .normal)
-        }
-        
+        buttons[selectedSegmentIndex].setTitleColor(selectedTextColor, for: .normal)
     }
     
     //called if boolean for text is false
