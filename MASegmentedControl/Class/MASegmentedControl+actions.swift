@@ -34,7 +34,7 @@ extension MASegmentedControl {
     }
     
     @objc internal func setSelectedIndex(to index: Int) {
-        if index != 1 {
+        if !unchengableItems.contains(index) {
             let selectedBtn = self.buttons[index]
             
             for (btnIndex, btn) in self.buttons.enumerated() {

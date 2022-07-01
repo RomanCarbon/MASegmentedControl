@@ -48,6 +48,7 @@ public class MASegmentedControl: UIControl {
     //change this public properties for customization
     
     // MARK: APPEREANCE
+    public var unchengableItems: [Int] = []
     public var selectedSegmentIndex = 0
     {
         didSet {
